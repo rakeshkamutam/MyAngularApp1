@@ -1,0 +1,134 @@
+/* Container for the form */
+form {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+  }
+  
+  /* Form fields container */
+  form div {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Labels */
+  label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Input fields */
+  input {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  }
+  
+  /* Invalid input fields */
+  input.ng-invalid.ng-touched {
+    border-color: #ff4d4d;
+  }
+  
+  input.ng-invalid.ng-touched:focus {
+    box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.1);
+  }
+
+  /* success messages */
+  .success-message {
+    color: green;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+  }
+  
+  /* Error messages */
+  .error-message {
+    color: #ff4d4d;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+  }
+  
+  /* Submit button */
+  button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button:active {
+    transform: scale(0.98);
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Response container */
+  div.response {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+  }
+  
+  div.response h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  div.response pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  /* Error message container */
+  div.error-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #fff3f3;
+    border-radius: 6px;
+    border: 1px solid #ff4d4d;
+    color: #ff4d4d;
+    font-size: 0.9rem;
+  } 
+
+  /* Success message container */
+  div.success-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #fff3f3;
+    border-radius: 6px;
+    border: 1px solid green;
+    color: green;
+    font-size: 0.9rem;
+  } 

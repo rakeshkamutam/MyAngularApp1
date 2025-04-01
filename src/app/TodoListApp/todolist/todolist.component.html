@@ -1,0 +1,17 @@
+
+<div class="container">
+  <div class="row justify-content-center"> <!-- Center the row -->
+    <div class="col-md-6 text-center"> <!-- Center the column and align text -->
+      <h1 class="text-primary mb-4">Todo List</h1> <!-- Add margin-bottom -->
+      <ul class="list-group"> <!-- Use list-group for better list styling -->
+        <li *ngFor="let todo of todos; index as i" class="list-group-item d-flex justify-content-between align-items-center">
+          <span>Name: {{ todo.name }}</span> <!-- Todo item text -->
+          <div>
+            <button class="btn btn-warning btn-sm mr-2">Edit</button> <!-- Edit button -->
+            <button class="btn btn-danger btn-sm" (click)="removeTodo(i)">❌</button> <!-- Delete button -->
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

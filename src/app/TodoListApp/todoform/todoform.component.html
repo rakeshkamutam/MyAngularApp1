@@ -1,0 +1,35 @@
+
+<div class="container">
+  <div class="row justify-content-center"> <!-- Center the row -->
+    <div class="col-md-6 text-center"> <!-- Center the column and align text -->
+      <h1 class="text-primary mb-4">Todo Form</h1> <!-- Add margin-bottom -->
+      <div class="input-group mb-3"> <!-- Use input-group for better input and button alignment -->
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="todoInput"
+          name="dd"
+          placeholder="Enter a task"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-success"
+            (click)="addTask()"
+            [disabled]="!todoInput.length"
+          >
+            Add
+          </button>
+          <button
+            class="btn btn-danger ml-2"
+            (click)="reset()"
+            [disabled]="!todoInput.length"
+          >
+            Clear
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-todolist></app-todolist>

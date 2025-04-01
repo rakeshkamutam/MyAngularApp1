@@ -1,0 +1,69 @@
+
+<div>{{d1}}</div>
+
+<form (ngSubmit)="onSubmit()" #couponForm="ngForm">
+  <div>
+    <label for="couponCode">Coupon Code:</label>
+    <input
+      id="couponCode"
+      [(ngModel)]="payload.couponCode"
+      name="couponCode"
+      required
+      minlength="3"
+      #couponCode="ngModel"
+      placeholder="Enter Coupon Code"
+    />
+    <div *ngIf="couponCode.invalid && (couponCode.dirty || couponCode.touched)" class="error-message">
+      <div *ngIf="couponCode.errors?.['required']">Coupon Code is required.</div>
+      <div *ngIf="couponCode.errors?.['minlength']">Coupon Code must be at least 3 characters long.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="discountAmount">Discount Amount:</label>
+    <input
+      id="discountAmount"
+      type="number"
+      [(ngModel)]="payload.discountAmount"
+      name="discountAmount"
+      required
+      min="1"
+      #discountAmount="ngModel"
+    />
+    <div *ngIf="discountAmount.invalid && (discountAmount.dirty || discountAmount.touched)" class="error-message">
+      <div *ngIf="discountAmount.errors?.['required']">Discount Amount is required.</div>
+      <div *ngIf="discountAmount.errors?.['min']">Discount Amount must be greater than 0.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="minAmount">Minimum Amount:</label>
+    <input
+      id="minAmount"
+      type="number"
+      [(ngModel)]="payload.minAmount"
+      name="minAmount"
+      required
+      min="1"
+      #minAmount="ngModel"
+    />
+    <div *ngIf="minAmount.invalid && (minAmount.dirty || minAmount.touched)" class="error-message">
+      <div *ngIf="minAmount.errors?.['required']">Minimum Amount is required.</div>
+      <div *ngIf="minAmount.errors?.['min']">Minimum Amount must be greater than 0.</div>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="couponForm.invalid">Submit</button>
+  
+<!-- Success message -->
+<div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+
+<!-- Error message -->
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+</form>
+
+<div *ngIf="datapost" class="response">
+  <h3>Response from API:</h3>
+  <pre>{{ datapost | json }}</pre>
+</div>

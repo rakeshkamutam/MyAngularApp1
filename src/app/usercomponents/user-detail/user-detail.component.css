@@ -1,0 +1,50 @@
+/* User detail container */
+.user-detail {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* User image */
+  .user-detail img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  
+  /* User name */
+  .user-detail h2 {
+    margin: 0 0 10px;
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  /* User details */
+  .user-detail p {
+    margin: 0 0 10px;
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  /* Back link */
+  .user-detail a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .user-detail a:hover {
+    background-color: #0056b3;
+  }

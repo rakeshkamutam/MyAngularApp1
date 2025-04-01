@@ -1,0 +1,10 @@
+
+<div class="filters">
+  <a [routerLink]="['/users']" [queryParams]="{ filter: null }">All</a>
+  <a [routerLink]="['/users']" [queryParams]="{ filter: 'male' }">Male</a>
+  <a [routerLink]="['/users']" [queryParams]="{ filter: 'female' }">Female</a>
+</div>
+
+<div class="user-list">
+  <app-user-card *ngFor="let user of filteredUsers" [user]="user"></app-user-card>
+</div>

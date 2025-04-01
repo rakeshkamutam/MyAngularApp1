@@ -1,0 +1,68 @@
+/* Container for the form */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #f0f2f5; /* Light gray background */
+  }
+  
+  /* Form styling */
+  .login-form {
+    background: #ffffff; /* White background */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    width: 100%;
+    max-width: 400px; /* Limit form width */
+  }
+  
+  /* Heading */
+  .login-form h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #333; /* Dark gray text */
+    text-align: center;
+  }
+  
+  /* Input fields */
+  .login-form input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s ease;
+  }
+  
+  .login-form input:focus {
+    border-color: #007bff; /* Blue border on focus */
+    outline: none; /* Remove default outline */
+  }
+  
+  /* Button */
+  .login-form button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007bff; /* Blue background */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-form button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Error message (optional) */
+  .error-message {
+    color: #dc3545; /* Red text */
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    text-align: center;
+  }

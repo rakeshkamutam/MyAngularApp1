@@ -1,0 +1,16 @@
+  
+<form (ngSubmit)="deleteCoupon()">
+  <label>Coupon ID:</label>
+  <input type="number" [(ngModel)]="coupon.couponId" name="couponId" required />
+
+  <button type="submit" [disabled]="isDeleting || coupon.couponId <= 0 ">
+    Delete Coupon
+  </button>
+
+  <!-- Success Message -->
+<div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+
+<!-- Error Message -->
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+</form>

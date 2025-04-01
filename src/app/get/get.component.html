@@ -1,0 +1,26 @@
+
+
+<div *ngIf="!data"><h1>Loading...</h1></div> 
+
+
+<div *ngIf="data">
+  <h1>Available Data</h1>
+  <table border="1px">
+    <thead>
+      <tr>
+        <th>Coupon ID</th>
+        <th>Coupon Code</th>
+        <th>Discount Amount</th>
+        <th>Minimum Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let coupon of data.result">
+        <td>{{ coupon.couponId }}</td>
+        <td>{{ coupon.couponCode }}</td>
+        <td>{{ coupon.discountAmount }}%</td>
+        <td>₹{{ coupon.minAmount }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

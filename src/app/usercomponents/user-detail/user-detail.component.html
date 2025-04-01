@@ -1,0 +1,13 @@
+
+<div *ngIf="user; else userNotFound"  class="user-detail">
+  <img [src]="user.photo" alt="{{ user.name }}" />
+  <h2>{{ user.name }}</h2>
+  <p><strong>Category:</strong> {{ user.category }}</p>
+  <p><strong>Gender:</strong> {{ user.gender }}</p>
+  <a [routerLink]="['/users']">Back to Users</a>
+</div>
+
+
+<ng-template #userNotFound>
+  <p>User not found.</p>
+</ng-template>

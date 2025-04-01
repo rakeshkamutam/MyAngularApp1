@@ -1,0 +1,12 @@
+
+
+<div class="timer-container">
+    <div class="timer-display">
+      {{ hours }} : {{ minutes }} : {{ seconds }}
+    </div>
+    <div class="timer-controls">
+      <button (click)="startTimer()" [disabled]="isRunning">Start</button>
+      <button (click)="stopTimer()" [disabled]="!isRunning">Stop</button>
+      <button (click)="resetTimer()">Reset</button>
+    </div>
+  </div>

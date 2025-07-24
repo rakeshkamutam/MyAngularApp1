@@ -8,11 +8,13 @@ import { UserDetailComponent } from './usercomponents/user-detail/user-detail.co
 import { LoginComponent } from './login/login.component';
 import { TodoformComponent } from './TodoListApp/todoform/todoform.component';
 import { TodolistComponent } from './TodoListApp/todolist/todolist.component';
+import { ThemeToggleComponent } from './Dark-Light/theme-toggle/theme-toggle.component';
+import { ThemedBoxComponent } from './Dark-Light/themed-box/themed-box.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule,RouterModule,HeaderComponent,UserListComponent,UserDetailComponent,UserCardComponent,TodoformComponent,TodolistComponent],
+  imports: [RouterOutlet, CommonModule,RouterModule,HeaderComponent,UserListComponent,UserDetailComponent,UserCardComponent,TodoformComponent,TodolistComponent, ThemeToggleComponent, ThemedBoxComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

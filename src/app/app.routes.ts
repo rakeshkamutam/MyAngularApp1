@@ -9,8 +9,11 @@ import { UserDetailComponent } from './usercomponents/user-detail/user-detail.co
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { TodoformComponent } from './TodoListApp/todoform/todoform.component';
-import { ResumeComponent } from './resume/resume.component';
 import { TimerComponent } from './timer/timer.component';
+import { Testapiview1Component } from './testapiview1/testapiview1.component';
+import { ThemeToggleComponent } from './Dark-Light/theme-toggle/theme-toggle.component';
+import { ThemedBoxComponent } from './Dark-Light/themed-box/themed-box.component';
+import { LifecycleDemoComponent } from './life-cycle-demo/life-cycle-demo.component';
 
 export const routes: Routes = [
     { path: 'home', component: HomeComponent, canActivate: [AuthGuard] }, // Protect this route
@@ -23,8 +26,11 @@ export const routes: Routes = [
     { path: 'users', component: UserListComponent },
     { path: 'users/:id', component: UserDetailComponent }, // Route parameter for user ID
     { path: 'todo', component: TodoformComponent},
-    { path: 'resume', component: ResumeComponent},
     {path: 'timer', component: TimerComponent},
+    {path: 'test', component: Testapiview1Component},
+    {path: 'theme', component: ThemeToggleComponent},
+    {path: 'theme1', component: ThemedBoxComponent},
+    {path: 'lifecyclehooks', component: LifecycleDemoComponent},
     {path:'**', component: NotfoundComponent}
 ];
 

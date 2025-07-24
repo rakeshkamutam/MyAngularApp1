@@ -1,17 +1,17 @@
 
+<div *ngIf="!data" class="loading-container">
+  <div class="spinner"></div>
+</div>
 
-<div *ngIf="!data"><h1>Loading...</h1></div> 
-
-
-<div *ngIf="data">
-  <h1>Available Data</h1>
-  <table border="1px">
+<div *ngIf="data" class="coupon-wrapper">
+  <h2 class="title">🎟️ Available Coupons</h2>
+  <table class="coupon-table">
     <thead>
       <tr>
-        <th>Coupon ID</th>
-        <th>Coupon Code</th>
-        <th>Discount Amount</th>
-        <th>Minimum Amount</th>
+        <th>ID</th>
+        <th>Code</th>
+        <th>Discount</th>
+        <th>Min. Amount</th>
       </tr>
     </thead>
     <tbody>

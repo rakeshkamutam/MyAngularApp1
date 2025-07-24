@@ -7,8 +7,46 @@
       <a routerLink="/delete" routerLinkActive="router-link-active" class="nav-link">Delete</a>      
       <a routerLink="/users" routerLinkActive="router-link-active" class="nav-link">Users</a>    
       <a routerLink="/todo" routerLinkActive="router-link-active" class="nav-link">Todo</a>  
-      <a routerLink="/resume" routerLinkActive="router-link-active" class="nav-link">Resume</a>
       <a routerLink="/timer" routerLinkActive="router-link-active" class="nav-link">Timer</a>
-
+      <a routerLink="/test" routerLinkActive="router-link-active" class="nav-link">TestAPI</a>
+      
     </nav>
-  </header>
+    
+    <div style="position: fixed; top: 25px; right: 80px; z-index: 1000;">
+      <span *ngIf="username">Welcome, {{ username }}!</span>
+
+        <!-- If logged in, show logout -->
+        <a 
+          *ngIf="username; else loginLink" 
+          (click)="authService.logout()" 
+        
+          style="color: red; text-decoration: none; margin-left: 20px;"
+        >
+          Logout
+        </a>
+
+        <!-- Else, show login -->
+          <ng-template #loginLink>
+            <a 
+              [routerLink]="['/login']"
+              style="color: burlywood; text-decoration: none; margin-left: 20px;"
+            >
+              Login
+            </a>
+          </ng-template>
+
+    </div>
+
+    <div style="position: fixed; top: 16px; right: 16px; z-index: 1000;">
+      <a 
+        routerLink="/theme" 
+        routerLinkActive="router-link-active" 
+        class="nav-link"
+        style="background-color: #4c8bf5; color: white; padding: 8px 12px; text-decoration: none; border-radius: 5px; font-weight: bold;"
+      >
+        💡
+      </a>
+    </div>
+
+</header>
+

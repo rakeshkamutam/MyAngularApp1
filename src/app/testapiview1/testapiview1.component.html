@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="user-card" *ngFor="let user of users">
+    <div class="user-header" (click)="toggleExpand(user.id)">
+      <span class="icon">{{ expandedUserId === user.id ? '➖' : '➕' }}</span>
+      <span class="user-name">{{ user.name }}</span>
+    </div>
+
+    <div class="user-body" *ngIf="expandedUserId === user.id">
+        <form (ngSubmit)="saveChanges(user)" class="main-grid">
+          <!-- Basic Info Collapsible -->
+          <div class="section-wrapper">
+            <div class="section-header" (click)="toggleSection(user.id, 'basic')">
+              <span class="icon">{{ nestedExpanded[user.id].basic ? '➖' : '➕' }}</span>
+              <strong>Basic Info</strong>
+            </div>
+            <div class="section-grid" *ngIf="nestedExpanded[user.id]?.basic">
+              <label>Name:</label><input [(ngModel)]="user.name" name="name{{user.id}}" [readonly]="!editMode[user.id]">
+              <label>Username:</label><input [(ngModel)]="user.username" name="username{{user.id}}" [readonly]="!editMode[user.id]">
+              <label>Email:</label><input [(ngModel)]="user.email" name="email{{user.id}}" [readonly]="!editMode[user.id]">
+              <label>Phone:</label><input [(ngModel)]="user.phone" name="phone{{user.id}}" [readonly]="!editMode[user.id]">
+              <label>Website:</label><input [(ngModel)]="user.website" name="website{{user.id}}" [readonly]="!editMode[user.id]">
+            </div>
+          </div>
+
+          <!-- Address Collapsible -->
+          <div class="section-wrapper">
+            <div class="section-header" (click)="toggleSection(user.id, 'address')">
+              <span class="icon">{{ nestedExpanded[user.id].address ? '➖' : '➕' }}</span>
+              <strong>Address</strong>
+            </div>
+            <div class="section-grid" *ngIf="nestedExpanded[user.id]?.address">
+              <label>Street:</label><input [(ngModel)]="user.address.street" name="street{{user.id}}" [readonly]="!editMode[user.id]">
+              <label>Suite:</label><input [(ngModel)]="user.address.suite" name="suite{{user.id}}" [readonly]="!editMode[user.id]">
+              <label>City:</label><input [(ngModel)]="user.address.city" name="city{{user.id}}" [readonly]="!editMode[user.id]">
+              <label>Zipcode:</label><input [(ngModel)]="user.address.zipcode" name="zipcode{{user.id}}" [readonly]="!editMode[user.id]">
+              <label>Latitude:</label><input [(ngModel)]="user.address.geo.lat" name="lat{{user.id}}" [readonly]="!editMode[user.id]">
+              <label>Longitude:</label><input [(ngModel)]="user.address.geo.lng" name="lng{{user.id}}" [readonly]="!editMode[user.id]">
+            </div>
+          </div>
+
+          <!-- Company Info Collapsible -->
+          <div class="section-wrapper">
+            <div class="section-header" (click)="toggleSection(user.id, 'company')">
+              <span class="icon">{{ nestedExpanded[user.id].company ? '➖' : '➕' }}</span>
+              <strong>Company Info</strong>
+            </div>
+            <div class="section-grid" *ngIf="nestedExpanded[user.id]?.company">
+              <label>Company:</label><input [(ngModel)]="user.company.name" name="companyName{{user.id}}" [readonly]="!editMode[user.id]">
+              <label>Catch Phrase:</label><input [(ngModel)]="user.company.catchPhrase" name="catchPhrase{{user.id}}" [readonly]="!editMode[user.id]">
+              <label>BS:</label><input [(ngModel)]="user.company.bs" name="bs{{user.id}}" [readonly]="!editMode[user.id]">
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="form-buttons">
+            <button type="button" (click)="toggleEdit(user.id)">{{ editMode[user.id] ? 'Cancel' : 'Edit' }}</button>
+            <button type="submit" *ngIf="editMode[user.id]">Save</button>
+          </div> 
+        </form>
+
+    </div>
+  </div>
+</div>

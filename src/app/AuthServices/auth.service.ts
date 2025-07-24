@@ -1,34 +1,62 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
+
+interface AuthResponse {
+  token: string;
+  email: string;
+  userName: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
-  // Example: A simple flag to simulate user authentication status
-  private isAuthenticated = false;
+  private loggedInUser = new BehaviorSubject<string | null>(localStorage.getItem('userName'));
+  currentUser$ = this.loggedInUser.asObservable();
 
-  constructor(private router: Router) {}
+  private apiBaseUrl = 'https://localhost:7001/api/Auth/login'; // Adjust if needed
 
-  // Method to simulate user login
-  login(username: string, password: string): boolean {
-    // Simulate authentication logic
-    if (username === 'rakesh' && password === '123456') {
-      this.isAuthenticated = true;
-      return true;
-    }
-    this.isAuthenticated = false;
-    return false;
+  constructor(private http: HttpClient, private router: Router) {}
+
+  //Login API Service
+  login(email: string, password: string): Observable<AuthResponse> {
+    return this.http
+      .post<AuthResponse>(this.apiBaseUrl, { email, password })
+      .pipe(
+        tap((response) => {
+          localStorage.setItem('authToken', response.token);
+          localStorage.setItem('userName', response.userName);
+          localStorage.setItem('email', response.email);
+          this.loggedInUser.next(response.userName);
+        })
+      );
   }
 
-  // Method to simulate user logout
+  //Registration API Service
+  register(user: any): Observable<any> {
+  return this.http.post('https://localhost:7001/api/Auth/register', user);
+  }
+
   logout(): void {
-    this.isAuthenticated = false;
-    this.router.navigate(['/login']);
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('email');
+    this.loggedInUser.next(null);
+    //this.router.navigate(['/login']);
   }
 
-  // Method to check if the user is logged in
   isLoggedIn(): boolean {
-    return this.isAuthenticated;
+    return !!localStorage.getItem('authToken');
+  }
+
+  getToken(): string | null {
+    return localStorage.getItem('authToken');
+  }
+
+  getUserName(): string | null {
+    return localStorage.getItem('userName');
   }
 }
